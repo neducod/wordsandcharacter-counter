@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>Word and Character Counter</h1>
+        <p>Track your characters or words here</p>
+        <p>A JavaScript project by <a href="#">Josephine</a> </p>
+    </div>
+    <div class="btns-wrapper">
+        <button onclick="filterItems('none')" id="home">Home</button>
+        <button onclick="filterItems('words')">Word Counter</button>
+        <button onclick="filterItems('characters')">Character Counter</button>
+    </div>
+    <div class="container" data-category="characters">
+        <textarea name="" id="textarea" cols="30" rows="10" placeholder="Write your text here" onkeyup="countLetters();"></textarea>
+        <p>Total characters: <span id="count">0</span> </p>
+    </div>
+
+    <div class="container" data-category="words">
+        <textarea name="" id="textareaTwo" cols="30" rows="10" placeholder="Write your text here" onkeyup="countWords();"></textarea>
+        <p>Total words: <span id="countwordSpan">0</span> </p>
+    </div>
+    <script>
+        //second part
+        const textareaTwo = document.getElementById("textareaTwo");
+        const countwordSpan = document.getElementById("countwordSpan");
+
+        function countWords(){
+            const words = textareaTwo.value;
+            // const wordds = textareaTwo.value.length;
+            const wordds = textareaTwo.value.trim().split(/\s+/).length;
+            countwordSpan.innerText = `${wordds}`
+        }
+    </script>
+
+
+
+    <script>
+        const textarea = document.getElementById("textarea");
+        const count = document.getElementById("count");
+
+        function countLetters(){
+            const text = textarea.value;
+            const textLength = textarea.value.length;
+            count.innerText = `${textLength}`;
+        }
+//     
+
+
+
+
+// "IloveJS".split()
+// console.log("I love JS")
+    </script>
+    <script>
+        //CODE FOR THE FILTER OPTION
+        function filterItems(category) {
+            const itemss = document.querySelectorAll('.container');
+            itemss.forEach(item => {
+            if (category === 'none') {
+                // hide everything when home is clicked
+                item.classList.add('hidden');
+            } else if (item.getAttribute('data-category') === category) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+            });
+        }
+
+        window.onload = function() {
+            filterItems('none');
+        };
+
+
+
+    </script>
+
+
+
+
+
+
+    <script>
+            const container = document.querySelectorAll('.container');
+            const home = document.getElementById("home")
+            if (home = 'none'){
+                container.classList.add('hidden')
+            }else{
+                container.classList.add('hidden')
+            }
+
+            
+    </script>
+</body>
+</html>
