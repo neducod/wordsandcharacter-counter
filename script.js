@@ -18,12 +18,12 @@ function countLetters(){
     count.innerText = `${textLength}`;
 }
 
-
+/*
 
 function filterItems(category) {
     const itemss = document.querySelectorAll('.container');
     itemss.forEach(item => {
-    if (category === 'none') {
+    if (category === 'loader') {
         // hide everything when home is clicked
         item.classList.add('hidden');
     } else if (item.getAttribute('data-category') === category) {
@@ -35,8 +35,29 @@ function filterItems(category) {
 }
 
 window.onload = function() {
-    filterItems('none');
+    filterItems('loader');
 };
+
+*/
+
+function filterItems(category) {
+    const itemss = document.querySelectorAll('.container');
+    
+    itemss.forEach(item => {
+      if (item.getAttribute('data-category') === category) {
+        item.classList.remove('hidden'); // show clicked one
+      } else {
+        item.classList.add('hidden'); // hide the others
+      }
+    });
+  }
+  
+  // Default: show home only
+  window.onload = function() {
+    filterItems('loader');
+  };
+  
+
 
 
 
