@@ -100,7 +100,7 @@ body{
 */
 @media screen and (max-width: 760px) {
     .heading h1{
-        font-size: 25px;
+        font-size: 15px;
     }
     .btns-wrapper{
         gap: 5px
